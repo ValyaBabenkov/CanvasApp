@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { PlasmaApp, Page, OnStartFn } from '@sberdevices/plasma-temple';
+import { AppParams, AppState } from './types';
+import {assistantParams} from './constants'
 
-function App() {
+const headerProps = {
+  title: 'Портфель проектов',
+  // logo: "/images/logo.png"
+};
+
+// После того как ассистент готов к работе открываем экран галереи
+const onStart: OnStartFn<AppState, AppParams> = async ({ pushScreen }) => {
+  pushScreen('projectList');
+};
+
+const ProjectList = Page.lazy(() => import('./screens/ProjectList'));
+const SubProjectList = Page.lazy(() => import('./screens/SubProjectList'));
+const Error = Page.lazy(() => import("./screens/Error"));
+
+export const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <PlasmaApp
+      onStart={onStart}
+      assistantParams={assistantParams}
+      header={headerProps}
+    >
+      <Page name="projectList" component={ProjectList} />
+      <Page name="subProjectList" component={SubProjectList} />
+    </PlasmaApp>
   );
-}
+};
 
 export default App;
