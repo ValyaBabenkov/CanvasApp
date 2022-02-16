@@ -8,7 +8,7 @@ export default class DateFormat {
     fullMonth: 'dd MMMM yyyy',
   };
 
- static today = (): DateFormat => {
+  static today = (): DateFormat => {
     const dateFormat = new DateFormat();
     dateFormat.date = new Date();
     return dateFormat;
@@ -28,7 +28,7 @@ export default class DateFormat {
 
   static min = (dateFormats: Array<DateFormat | undefined>): DateFormat | undefined => {
     let min: DateFormat | undefined;
-    dateFormats.forEach((dateFormat) => {
+    dateFormats.forEach(dateFormat => {
       if (dateFormat?.date === undefined) return;
       if (min === undefined || (min.date !== undefined && dateFormat.date < min.date))
         min = dateFormat;
@@ -38,7 +38,7 @@ export default class DateFormat {
 
   static max = (dateFormats: Array<DateFormat | undefined>): DateFormat | undefined => {
     let max: DateFormat | undefined;
-    dateFormats.forEach((dateFormat) => {
+    dateFormats.forEach(dateFormat => {
       if (dateFormat?.date === undefined) return;
       if (max === undefined || (max.date !== undefined && dateFormat.date > max.date))
         max = dateFormat;
@@ -48,14 +48,13 @@ export default class DateFormat {
 
   static differenceInDays = (
     a: DateFormat | undefined,
-    b: DateFormat | undefined,
+    b: DateFormat | undefined
   ): number | undefined => {
     if (!a?.date || !b?.date) return;
     return DateFns.differenceInDays(a.date, b.date);
   };
 
   date: Date | undefined;
-
 
   fromISO = (iso: string): void => {
     this.date = DateFns.parseISO(iso);
@@ -148,5 +147,3 @@ export default class DateFormat {
     return DateFns.format(this.date, format, {locale: DateFormat.LOCALE});
   };
 }
-
-

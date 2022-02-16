@@ -1,10 +1,6 @@
 import React from 'react';
-import {
-  GalleryCardParams,
-  GalleryCardProps,
-  GalleryPage,
-} from '@sberdevices/plasma-temple';
-import { Film, PageProps, AppState } from './types';
+import {GalleryCardParams, GalleryCardProps, GalleryPage} from '@sberdevices/plasma-temple';
+import {Film, PageProps, AppState} from './types';
 import {
   Card,
   CardBody,
@@ -14,10 +10,7 @@ import {
   CardMedia,
 } from '@sberdevices/plasma-ui';
 
-const createDataObject = (
-  type: string,
-  index: number
-): GalleryCardParams<Film> => ({
+const createDataObject = (type: string, index: number): GalleryCardParams<Film> => ({
   id: String(index),
   label: 'Первый фильм',
   name: 'Первый фильм',
@@ -38,21 +31,17 @@ export const getInitialProps = async (): Promise<AppState['gallery']> => {
         activeCardIndex: 0,
         id: 'main',
         title: 'Галерея фильмов',
-        items: Array.from({ length: 5 }, (_, i) =>
-          createDataObject('Новинка', i)
-        ),
+        items: Array.from({length: 5}, (_, i) => createDataObject('Новинка', i)),
       },
     ],
   };
 };
 
-const CustomCard: React.FC<GalleryCardProps<Film>> = ({ card, focused }) => {
-  const src = Array.isArray(card.image.src)
-    ? card.image.src[0]
-    : card.image.src;
+const CustomCard: React.FC<GalleryCardProps<Film>> = ({card, focused}) => {
+  const src = Array.isArray(card.image.src) ? card.image.src[0] : card.image.src;
 
   return (
-    <Card focused={focused} style={{ width: '398px' }}>
+    <Card focused={focused} style={{width: '398px'}}>
       <CardBody>
         <CardMedia src={src} ratio="3 / 4" />
         <CardContent cover>
@@ -69,7 +58,7 @@ const CustomCard: React.FC<GalleryCardProps<Film>> = ({ card, focused }) => {
   );
 };
 
-export const Gallery: React.FC<PageProps<'gallery'>> = (props) => {
+export const Gallery: React.FC<PageProps<'gallery'>> = props => {
   const onCardClickHandler = (_val: Film) => {};
 
   return (

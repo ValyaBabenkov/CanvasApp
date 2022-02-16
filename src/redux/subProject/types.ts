@@ -1,30 +1,28 @@
-import {
-    MediaObject
-  } from "@sberdevices/plasma-temple";
+import {MediaObject} from '@sberdevices/plasma-temple';
 
 export interface ISubProjectId {
-    itemId: number
+  itemId: number;
 }
 
 export interface ISubProject {
-    id: string | number,
-    title: string,
-    image: MediaObject,
-  }
-  export interface ITep {
-    icon: string;
-    unitId: string;
-    unit: string;
-    value: string;
-    isActive: boolean;
-    title: string;
-    id: number;
+  id: string | number;
+  title: string;
+  image: MediaObject;
+}
+export interface ITep {
+  icon: string;
+  unitId: string;
+  unit: string;
+  value: string;
+  isActive: boolean;
+  title: string;
+  id: number;
 }
 export interface ISlider {
   date: Date;
   isActive: boolean;
   imageUrl?: string;
-  image: string,
+  image: string;
   title: string;
   id: number;
 }
@@ -44,12 +42,12 @@ export interface IShortStatusResponse {
   generalInfo: string | null;
   // isDraft: boolean;
   // editor: UserInfoResponse | null;
-};
+}
 export interface ShortStatusRiskResponse {
   riskDescription: string | null;
   riskEvent: string | null;
   id: number;
-};
+}
 
 export interface UserInfoResponse {
   id: number;
@@ -59,11 +57,10 @@ export interface UserInfoResponse {
   companyName: string | null;
   sortWeight: number;
   companySortWeight: number;
-};
+}
 
 export interface ShortStatusLaunchResponse {
   subProject: string | null;
   date: string;
   id: number;
-};
-
+}

@@ -27,7 +27,7 @@ export default cb => async (...params) => {
       const response = await cb(...params);
       return response;
     } catch (error) {
-      console.log('Ошибка', error.response.data.error)
+      console.log('Ошибка', error.response.data.error);
       // Alert.alert('Ошибка', error.response.data.error);
       return Promise.reject({message: 'SERVER_ERROR'});
     }
@@ -35,7 +35,7 @@ export default cb => async (...params) => {
 
   if (!AlertIsOpen) {
     AlertIsOpen = true;
-    console.log("Проблема с интернетом")
+    console.log('Проблема с интернетом');
     // Alert.alert(
     //   'Нет соединения с интернетом',
     //   'Попробуйте воспользоваться другой сетью - мобильной или Wi-Fi',

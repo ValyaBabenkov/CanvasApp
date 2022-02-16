@@ -9,10 +9,7 @@ export default (url, params = {}) =>
   compose(
     reduce(
       (acc, key) =>
-        compose(
-          replace(new RegExp(`{{ *${key}+ *}}`, 'g'), __, acc),
-          prop(__, params)
-        )(key),
+        compose(replace(new RegExp(`{{ *${key}+ *}}`, 'g'), __, acc), prop(__, params))(key),
       url
     ),
     keys

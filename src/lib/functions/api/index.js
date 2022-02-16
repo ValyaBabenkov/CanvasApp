@@ -1,8 +1,4 @@
-import {
-  PROJECTS_URL,
-  SUB_PROJECT_URL,
-  TOKEN_SBERBUILD
-} from '../../../constants/api';
+import {PROJECTS_URL, SUB_PROJECT_URL, TOKEN_SBERBUILD} from '../../../constants/api';
 import axios from 'axios';
 import req from './req';
 import url from './url';
@@ -19,5 +15,5 @@ export default {
   },
   subProject: {
     get: req(id => axios.get(url(SUB_PROJECT_URL, {id}), authHeader())),
-  }
+  },
 };
