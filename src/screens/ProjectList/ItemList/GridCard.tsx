@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC,useCallback } from 'react';
 import {
   Card,
   CardBody,
@@ -11,9 +11,11 @@ import {
 import { Project } from '../../../types';
 
 const GridCard: FC = (props:any) => {
-  const {image, position, text} = props
+  const {image, position, text, onClick} = props
+  const srcImg = image?.src || ""
   return (
     <Card
+      //onClick={handleClick}
       style={{ width: '22.5rem', margin: '0.75rem' }}
       tabIndex={0}
       outlined
@@ -21,9 +23,9 @@ const GridCard: FC = (props:any) => {
     >
       <CardBody>
         <CardMedia
-          src=""
+          src={(srcImg).toString()}
           placeholder={text}
-          ratio="1 / 1"
+          ratio="2 / 1"
         />
         <CardContent cover>
           <TextBox>

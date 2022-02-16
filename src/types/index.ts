@@ -29,8 +29,6 @@ import {
     gallery: void;
   }
 
-
-
   export interface Film {
     id: string;
     name: string;

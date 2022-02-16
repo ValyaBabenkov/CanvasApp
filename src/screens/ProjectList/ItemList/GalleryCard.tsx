@@ -12,22 +12,44 @@ import {
   TextBoxBigTitle,
   TextBoxBiggerTitle,
 } from '@sberdevices/plasma-ui';
+import styled from 'styled-components'
 
-const GalleryCard: FC<GalleryCardProps<Project>> = ({card, focused, index}) => {
+const TextContainer = styled(TextBox)`
+  display:flex;
+  align-items: center;
+`
+const Position = styled.div`
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size:12px;
+    margin-right: 1rem;
+    min-width:2rem;
+    min-height:2rem;
+    max-width:2rem;
+    max-height:2rem;
+    border-radius: 1rem;
+    background-color: rgba(255,255,255,0.4);
+`
+
+const GalleryCard: FC = ({card, focused, index}:any) => {
   const {id, image, position, label} = card
+  const srcImg = image?.src || ""
   return (
-    <Card style={{ width: '22.5rem' }} tabIndex={0} outlined scaleOnFocus>
+    <Card key={id} style={{ width: '22.5rem' }} tabIndex={0} outlined scaleOnFocus>
       <CardBody>
         <CardMedia
-          src={""}
+          src={(srcImg).toString()}
           placeholder={label}
-          ratio="1 / 1"
+          ratio="2/1"
+          
         />
         <CardContent cover>
-          <TextBox>
+          <TextContainer>
+            <Position>{id}</Position>
             <TextBoxBigTitle>{label}</TextBoxBigTitle>
             <TextBoxBiggerTitle> </TextBoxBiggerTitle>
-          </TextBox>
+          </TextContainer>
         </CardContent>
       </CardBody>
     </Card>

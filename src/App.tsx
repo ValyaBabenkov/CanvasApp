@@ -1,7 +1,7 @@
 import React from 'react';
 import { PlasmaApp, Page, OnStartFn } from '@sberdevices/plasma-temple';
 import { AppParams, AppState } from './types';
-import {assistantParams} from './constants'
+import {assistantParams} from './constants/api'
 
 const headerProps = {
   title: 'Портфель проектов',
@@ -15,7 +15,6 @@ const onStart: OnStartFn<AppState, AppParams> = async ({ pushScreen }) => {
 
 const ProjectList = Page.lazy(() => import('./screens/ProjectList'));
 const SubProjectList = Page.lazy(() => import('./screens/SubProjectList'));
-const Error = Page.lazy(() => import("./screens/Error"));
 
 export const App: React.FC = () => {
   return (
