@@ -24,7 +24,7 @@ const SubProjectList = (props: any) => {
     refetch();
   };
   return (
-    <Container>
+    <>
       <Header
         back
         logo={require('../../assets/images/logo.png')}
@@ -40,7 +40,8 @@ const SubProjectList = (props: any) => {
       ) : (
         <Row>
           {subProjects.length && (
-            <Col size={2} sizeXL={2} sizeL={2} sizeM={2} sizeS={2}>
+            <Col sizeXL={2.5} sizeL={4.5} sizeM={6} sizeS={4}>
+              {/* <div style={{backgroundColor:'red', width:'100%',height:100}}>{'left'}</div> */}
               <Header title={'Объекты'} />
               {subProjects.map((it: any) => (
                 <ButtonSubProject
@@ -53,19 +54,18 @@ const SubProjectList = (props: any) => {
               ))}
             </Col>
           )}
-          <Col size={10} sizeXL={10} sizeL={6} sizeM={4} sizeS={2}>
-            <Container>
-              <Headline1 style={{paddingTop: 30}}>{subProjectTitle}</Headline1>
-              <SliderContainer itemId={active} />
-              <Row>
-                <TepContainer itemId={active} />
-                <ShortStatusContainer itemId={active} />
-              </Row>
-            </Container>
+          <Col size={12} sizeXL={9.5} sizeL={3.5} sizeM={6} sizeS={4}>
+            {/* <div style={{backgroundColor:'green', width:'100%', height:'100%'}}>{'blue'}</div> */}
+            <Headline1 style={{paddingTop: 30}}>{subProjectTitle}</Headline1>
+            <SliderContainer itemId={active} />
+            <Row>
+              <TepContainer itemId={active} />
+              <ShortStatusContainer itemId={active} />
+            </Row>
           </Col>
         </Row>
       )}
-    </Container>
+    </>
   );
 };
 

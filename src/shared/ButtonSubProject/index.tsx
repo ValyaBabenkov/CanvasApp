@@ -34,7 +34,7 @@ export default (props: any) => {
       content={
         <>
           <Position>{id}</Position>
-          <Button2>{title}</Button2>
+          <Button2 style={{overflowWrap: 'anywhere'}}>{title}</Button2>
         </>
       }
       contentRight={<CellDisclosure tabIndex={-1} />}

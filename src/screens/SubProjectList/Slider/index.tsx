@@ -45,6 +45,7 @@ export default (props: ISubProjectId) => {
     return (
       <>
         <Header title={'Слайдер'} />
+        {/* <Col type='calc' offset={1}> */}
         <CarouselGridWrapper>
           <Carousel
             tabIndex={0}
@@ -75,6 +76,7 @@ export default (props: ISubProjectId) => {
             ))}
           </Carousel>
         </CarouselGridWrapper>
+        {/* </Col> */}
       </>
     );
   };
@@ -87,9 +89,7 @@ export default (props: ISubProjectId) => {
       ) : error && !data ? (
         <div>{`Ошибка - ${error}`}</div>
       ) : (
-        <Row>
-          <Col size={12}>{renderContent(data)}</Col>
-        </Row>
+        <Col>{renderContent(data)}</Col>
       )}
     </>
   );
